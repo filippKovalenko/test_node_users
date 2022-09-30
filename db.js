@@ -1,8 +1,16 @@
+import * as dotenv from "dotenv"
 import Sequelize from "sequelize";
 
-const sequelize = new Sequelize("test", "root", "1234", {
-  host:"localhost",
-  dialect: "mysql",
-});
+dotenv.config()
 
+const sequelize = new Sequelize(
+  process.env.NAME,
+  process.env.DB_USER,
+  process.env.PASSWORD,
+  {
+    host: process.env.HOST,
+    dialect: "mysql",
+  }
+);
+ 
 export default sequelize;

@@ -16,7 +16,7 @@ export default function (...role) {
       }
       const decoded = jwt.verify(token, secret);
       console.log("decoded", decoded.role);
-      let hasRole = false;
+     let hasRole = false;
       if (decoded.role.includes(role)) {
         hasRole = true;
       }

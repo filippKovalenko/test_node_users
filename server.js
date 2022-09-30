@@ -4,7 +4,6 @@ import sequelize from "./db.js";
 import router from "./router.js";
 
 const app = express();
-const PORT = 3000;
 app.use(cors());
 app.use(express.json());
 app.use("/auth", router);
@@ -14,8 +13,8 @@ const start = async () => {
     await sequelize.authenticate();
     await sequelize.sync();
 
-    app.listen(PORT, () => {
-      console.log(`The server is running on port ${PORT}`);
+    app.listen(process.env.PORT, () => {
+      console.log(`The server is running on port ${process.env.PORT}`);
     });
   } catch (error) {
     console.log(error);
