@@ -14,7 +14,7 @@ router.get("/users", roleMiddleware("admin"), controller.getUser);
 router.patch("/role/:id", roleMiddleware("admin"), controller.editUser);
 router.delete("/users/:id", roleMiddleware("admin"), controller.deleteUser);
 
-router.get("/posts", authMiddleware, postController.get);
+router.get("/posts", postController.get);
 router.post("/create", createPosrValidation,handleValidationErrors,roleMiddleware("admin" && "editor"), postController.create);
 router.get("/posts/:id", authMiddleware, postController.getItem);
 router.patch("/posts/:id", createPosrValidation,handleValidationErrors,roleMiddleware("admin" && "editor"), postController.edit);
